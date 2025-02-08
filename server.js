@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 // SWAGGER
 require('./swagger');
 
+
+const cors = require('cors');
+app.use(cors());
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 3000; // Port number
