@@ -473,7 +473,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "partsId",
+            "name": "vehiclesId",
             "in": "path",
             "required": true,
             "schema": {
