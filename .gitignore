@@ -2,3 +2,5 @@
 /node_modules
 .idea
 # Enviroment File.
+.env 
+.gitnore
