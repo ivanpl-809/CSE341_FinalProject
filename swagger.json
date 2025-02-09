@@ -423,6 +423,21 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Vehicle"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Vehicle Creation",
+                  "value": {
+                    "Brand": "Toyota",
+                    "Name": "Corolla",
+                    "Year": 2023,
+                    "Type": "Sedan",
+                    "Engine_type": "Inline-4",
+                    "Fuel_type": "Gasoline",
+                    "Transmission": "Automatic",
+                    "colors_available": ["Red", "Blue", "White"]
+                  }
+                }
               }
             }
           }
@@ -448,10 +463,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "example": "any"
+                "$ref": "#/components/schemas/Vehicle"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Vehicle Update",
+                  "value": {
+                    "Brand": "Toyota",
+                    "Name": "Corolla",
+                    "Year": 2023,
+                    "Type": "Sedan",
+                    "Engine_type": "Inline-4",
+                    "Fuel_type": "Gasoline",
+                    "Transmission": "Automatic",
+                    "colors_available": ["Red", "Blue", "White"]
                   }
                 }
               }
