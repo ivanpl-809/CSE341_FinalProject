@@ -492,14 +492,14 @@
                 "ExampleRequest": {
                   "summary": "Sample Vehicle Update",
                   "value": {
-                    "Brand": "Toyota",
-                    "Name": "Corolla",
-                    "Year": 2023,
-                    "Type": "Sedan",
-                    "Engine_type": "Inline-4",
-                    "Fuel_type": "Gasoline",
-                    "Transmission": "Automatic",
-                    "colors_available": ["Red", "Blue", "White"]
+                    "Brand": "String",
+                    "Name": "String",
+                    "Year": 0,
+                    "Type": "String",
+                    "Engine_type": "String",
+                    "Fuel_type": "String",
+                    "Transmission": "String",
+                    "colors_available": ["String", "String", "String"]
                   }
                 }
               }
