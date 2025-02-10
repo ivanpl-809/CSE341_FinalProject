@@ -674,15 +674,6 @@
               "type": "string"
             },
             "example": ["Corolla", "Camry"]
-          },
-          "CreatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2023-10-01T12:00:00Z"
-          },
-          "_id": {
-            "type": "string",
-            "example": "64f8b7e1b1b2c3d4e5f6a7b8"
           }
         }
       },
@@ -717,15 +708,6 @@
           "PhoneNumber": {
             "type": "string",
             "example": "123-456-7890"
-          },
-          "CreatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2023-10-01T12:00:00Z"
-          },
-          "_id": {
-            "type": "string",
-            "example": "64f8b7e1b1b2c3d4e5f6a7b8"
           }
         }
       },
@@ -770,15 +752,6 @@
               "type": "string"
             },
             "example": ["Red", "Blue", "White"]
-          },
-          "CreatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2023-10-01T12:00:00Z"
-          },
-          "_id": {
-            "type": "string",
-            "example": "64f8b7e1b1b2c3d4e5f6a7b8"
           }
         }
       }
