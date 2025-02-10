@@ -29,7 +29,7 @@ exports.updateVehicle = async (req, res) => {
    #swagger.tags = ['Vehicle']
   */
   try {
-    const vehicle = await Vehicle.findByIdAndUpdate(req.params.vehiclesId, req.body, { new: true });
+    const vehicle = await Vehicle.findByIdAndUpdate(req.params.vehiclesId, req.body, { new: true, runValidators: true });
     if (!vehicle) return res.status(404).json({ message: 'Vehicle not found' });
     res.status(200).json(vehicle);
   } catch (error) {
