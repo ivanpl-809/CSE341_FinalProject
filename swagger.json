@@ -85,6 +85,19 @@
             }
           }
         ],
+        "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Part Update",
+                  "value": {
+                    "Brand": "",
+                    "Name": "",
+                    "Quality": "OEM",
+                    "Vehicles": [
+                      ""
+                    ]
+                  }
+                }
+              },
         "responses": {
           "200": {
             "description": "OK"
@@ -423,6 +436,25 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Vehicle"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Vehicle Creation",
+                  "value": {
+                    "Brand": "String",
+                   "Engine_type": "String",
+                  "Fuel_type": "String",
+                  "Name": "String",
+                  "Transmission": "String",
+                  "Year": 2025,
+                  "Type": "String",
+                  "colors_available": [
+                    "String",
+                    "String",
+                    "String"
+                  ]
+                  }
+                }
               }
             }
           }
@@ -459,6 +491,25 @@
             }
           }
         ],
+        "examples": {
+          "ExampleRequest": {
+            "summary": "Sample Vehicle Update",
+            "value": {
+              "Brand": "String",
+             "Engine_type": "String",
+            "Fuel_type": "String",
+            "Name": "String",
+            "Transmission": "String",
+            "Year": 2025,
+            "Type": "String",
+            "colors_available": [
+              "String",
+              "String",
+              "String"
+            ]
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
