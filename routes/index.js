@@ -1,9 +1,17 @@
-const router = require('express').Router();
-router.use('/parts', require('./partsRoute'));
-router.use('/user', require('./userRoute'));
-router.use('/vehicle', require('./vehicleRoute'));
-router.use('/brand', require('./brandRoute'));
-router.use('/aftermarketComp', require('./aftermarketCompaniesRoute'));
-router.use('/', require('./authenticate.routes'));
+const express = require('express');
+const router = express.Router();
+const partsController = require('../controllers/partsController');
+const { isAuthenticated } = require('../utils/oauth');
+
+// Protected route example
+router.get('/protected-route', isAuthenticated, (req, res) => {
+  res.json({ message: 'You are authenticated!' });
+});
+
+// Parts routes
+router.get('/parts', partsController.getAllParts);
+router.post('/parts', partsController.createPart);
+router.put('/parts/:id', partsController.updatePart);
+router.delete('/parts/:id', partsController.deletePart);
 
 module.exports = router;
