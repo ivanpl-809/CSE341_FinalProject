@@ -91,6 +91,9 @@ app.get('/', (req, res) => {
 });
 
 // GitHub OAuth callback route
+
+app.get('/auth/github', passport.authenticate('github'));
+
 app.get(
   '/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/api-docs', session: false }),
