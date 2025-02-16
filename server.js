@@ -4,7 +4,7 @@ const User = require('./models/userModel');
 
 const bodyParser = require('body-parser');
 
-const swaggerSetup = require('./swagger'); // Import swagger setup promise
+const swaggerSetup = require('./swagger'); 
 
 const passport = require('passport');
 const session = require('express-session');
