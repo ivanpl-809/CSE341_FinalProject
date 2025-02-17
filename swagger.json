@@ -95,29 +95,6 @@
           "404": {
             "description": "Not Found"
           }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Part"
-              },
-              "examples": {
-                "ExampleRequest": {
-                  "summary": "Sample Part Update",
-                  "value": {
-                    "Brand": "String",
-                    "Name": "String",
-                    "Quality": "String",
-                    "Vehicles": [
-                      "String"
-                    ]
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "get": {
@@ -250,10 +227,10 @@
         }
       }
     },
-    "/user/": {
+    "/aftermarketComp/": {
       "post": {
         "tags": [
-          "Users"
+          "AftermarketCompanies"
         ],
         "description": "",
         "responses": {
@@ -264,94 +241,31 @@
             "description": "Bad Request"
           }
         }
-      }
-    },
-    "/user/createWithArray": {
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/user/createWithList": {
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/user/login": {
+      },
       "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
     },
-    "/user/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/user/findByType": {
-      "get": {
+    "/aftermarketComp/{aftermarketId}": {
+      "put": {
         "tags": [
-          "Users"
+          "AftermarketCompanies"
         ],
         "description": "",
         "parameters": [
           {
-            "name": "type",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/user/{username}": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "username",
+            "name": "aftermarketId",
             "in": "path",
             "required": true,
             "schema": {
@@ -371,14 +285,14 @@
           }
         }
       },
-      "put": {
+      "get": {
         "tags": [
-          "Users"
+          "AftermarketCompanies"
         ],
         "description": "",
         "parameters": [
           {
-            "name": "username",
+            "name": "aftermarketId",
             "in": "path",
             "required": true,
             "schema": {
@@ -400,12 +314,12 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "AftermarketCompanies"
         ],
         "description": "",
         "parameters": [
           {
-            "name": "username",
+            "name": "aftermarketId",
             "in": "path",
             "required": true,
             "schema": {
@@ -422,6 +336,56 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/findByBrand": {
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/findByVehicle": {
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehicle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
@@ -491,31 +455,6 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        },
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Vehicle"
-              },
-              "examples": {
-                "ExampleRequest": {
-                  "summary": "Sample Vehicle Update",
-                  "value": {
-                    "Brand": "Toyota",
-                    "Name": "Corolla Hybrid",
-                    "Year": 2023,
-                    "Type": "Sedan",
-                    "Engine_type": "Inline-4",
-                    "Fuel_type": "Hybrid",
-                    "Transmission": "Automatic",
-                    "colors_available": ["Red", "Blue", "White"]
-                  }
-                }
-              }
-            }
           }
         }
       },
@@ -656,58 +595,207 @@
         "type": "object",
         "properties": {
           "Brand": {
-            "type": "string",
-            "example": "Toyota"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Name": {
-            "type": "string",
-            "example": "Brake Pads"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Quality": {
-            "type": "string",
-            "enum": ["OEM", "Aftermarket", "Used"],
-            "example": "OEM"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "enum": {
+                "type": "array",
+                "example": [
+                  "OEM",
+                  "Aftermarket",
+                  "Used"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "Vehicles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": ["Corolla", "Camry"]
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           }
         }
       },
-      "User": {
+      "AftermarketCompanies": {
         "type": "object",
         "properties": {
-          "Email": {
-            "type": "string",
-            "example": "user@example.com"
+          "Name": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
-          "FirstName": {
-            "type": "string",
-            "example": "John"
+          "Address": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
-          "LastName": {
-            "type": "string",
-            "example": "Doe"
+          "City": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
-          "PasswordHash": {
-            "type": "string",
-            "example": "hashedpassword123"
+          "State": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
-          "Username": {
-            "type": "string",
-            "example": "johndoe"
+          "Country": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
-          "AccountType": {
-            "type": "string",
-            "enum": ["admin", "customer"],
-            "example": "customer"
+          "Brands": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
           },
-          "PhoneNumber": {
-            "type": "string",
-            "example": "123-456-7890"
+          "CertifiedMechanics": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "number"
+              }
+            }
+          },
+          "Vehicles": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           }
         }
       },
@@ -715,43 +803,124 @@
         "type": "object",
         "properties": {
           "Brand": {
-            "type": "string",
-            "example": "Toyota"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Description": {
-            "type": "string",
-            "example": "A reliable sedan."
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "required": {
+                "type": "boolean",
+                "example": false
+              }
+            }
           },
           "Engine_type": {
-            "type": "string",
-            "example": "Inline-4"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Fuel_type": {
-            "type": "string",
-            "example": "Gasoline"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Name": {
-            "type": "string",
-            "example": "Corolla"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Transmission": {
-            "type": "string",
-            "example": "Automatic"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "Year": {
-            "type": "integer",
-            "example": 2023
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "number"
+              }
+            }
           },
           "Type": {
-            "type": "string",
-            "example": "Sedan"
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           },
           "colors_available": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": ["Red", "Blue", "White"]
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           }
         }
       }

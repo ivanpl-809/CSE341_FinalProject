@@ -2,12 +2,12 @@ const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0' });
 const mongooseToSwagger = require('mongoose-to-swagger');
 
 const partsModel = require('./models/partsModel');
-const userModel = require('./models/userModel');
+const aftermarketCompaniesModel = require('./models/aftermarketCompaniesModel');
 const vehicleModel = require('./models/vehicleModel');
 const mongoose = require('mongoose');
 
 const partsSchema = mongooseToSwagger(partsModel);
-const userSchema = mongooseToSwagger(userModel);
+const aftermarketCompaniesSchemaSchema = mongooseToSwagger(aftermarketCompaniesModel);
 const vehicleSchema = mongooseToSwagger(vehicleModel);
 
 const doc = {
@@ -29,7 +29,7 @@ const doc = {
   components: {
     schemas: {
       Part: partsSchema.properties,
-      User: userSchema.properties,
+      AftermarketCompanies: aftermarketCompaniesSchemaSchema.properties,
       Vehicle: vehicleSchema.properties,
     },
   },
