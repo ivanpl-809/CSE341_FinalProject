@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const partsController = require('../controllers/partsController');
+const { isAuthenticated } = require('./middleware/auth');
 
-router.post('/', partsController.createPart);
-router.put('/:partsId', partsController.updatePart);
-router.get('/', partsController.getAllParts);
-router.get('/findByBrand', partsController.getPartsByBrand);
-router.get('/findByVehicle', partsController.getPartsByVehicle);
-router.get('/findByQuality', partsController.getPartsByQuality);
-router.get('/:partsId', partsController.getPartById);
-router.delete('/:partsId', partsController.deletePart);
+router.post('/', isAuthenticated, partsController.createPart);
+router.put('/:id', isAuthenticated, partsController.updatePart);
+router.get('/', partsController.getParts);
+router.get('/:id', partsController.getPartById);
+router.delete('/:id', isAuthenticated, partsController.deletePart);
 
 module.exports = router;
