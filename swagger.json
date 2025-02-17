@@ -11,39 +11,12 @@
       "description": "Local development server"
     },
     {
-      "url": "https://your-render-app.onrender.com",
-      "description": "Render server"
+      "url": "https://cse-341-final-project-2g2g.onrender.com",
+      "description": "render server"
     }
   ],
   "paths": {
-    "/protected-route": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
-    "/parts": {
-      "get": {
-        "tags": [
-          "Parts"
-        ],
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
+    "/parts/": {
       "post": {
         "tags": [
           "Parts"
@@ -80,9 +53,23 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Parts"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
-    "/parts/{id}": {
+    "/parts/{partsId}": {
       "put": {
         "tags": [
           "Parts"
@@ -90,7 +77,34 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "partsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Parts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "partsId",
             "in": "path",
             "required": true,
             "schema": {
@@ -117,7 +131,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "partsId",
             "in": "path",
             "required": true,
             "schema": {
@@ -134,6 +148,605 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/parts/findByBrand": {
+      "get": {
+        "tags": [
+          "Parts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/parts/findByVehicle": {
+      "get": {
+        "tags": [
+          "Parts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehicle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/parts/findByQuality": {
+      "get": {
+        "tags": [
+          "Parts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "quality",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/": {
+      "post": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/{aftermarketId}": {
+      "put": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "aftermarketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "aftermarketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "aftermarketId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/findByBrand": {
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/aftermarketComp/findByVehicle": {
+      "get": {
+        "tags": [
+          "AftermarketCompanies"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehicle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/vehicle/": {
+      "post": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vehicle"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/vehicle/{vehiclesId}": {
+      "put": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehiclesId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehiclesId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "vehiclesId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/vehicle/findByBrand": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/vehicle/findByYear": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/vehicle/findByType": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/brands/": {
+      "post": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/brands/{brandsId}": {
+      "put": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brandsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brandsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "brandsId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/brands/findByCountry": {
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/brands/findByName": {
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
@@ -224,10 +837,10 @@
           }
         }
       },
-      "User": {
+      "AftermarketCompanies": {
         "type": "object",
         "properties": {
-          "Email": {
+          "Name": {
             "type": "object",
             "properties": {
               "type": {
@@ -236,7 +849,7 @@
               }
             }
           },
-          "FirstName": {
+          "Address": {
             "type": "object",
             "properties": {
               "type": {
@@ -245,7 +858,7 @@
               }
             }
           },
-          "LastName": {
+          "City": {
             "type": "object",
             "properties": {
               "type": {
@@ -254,7 +867,7 @@
               }
             }
           },
-          "PasswordHash": {
+          "State": {
             "type": "object",
             "properties": {
               "type": {
@@ -263,7 +876,7 @@
               }
             }
           },
-          "Username": {
+          "Country": {
             "type": "object",
             "properties": {
               "type": {
@@ -272,31 +885,56 @@
               }
             }
           },
-          "AccountType": {
+          "Brands": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "example": "string"
+                "example": "array"
               },
-              "enum": {
-                "type": "array",
-                "example": [
-                  "admin",
-                  "customer"
-                ],
-                "items": {
-                  "type": "string"
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
                 }
               }
             }
           },
-          "PhoneNumber": {
+          "CertifiedMechanics": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "example": "string"
+                "example": "number"
+              }
+            }
+          },
+          "Vehicles": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
               }
             }
           },
@@ -449,10 +1087,10 @@
           }
         }
       },
-      "Error": {
+      "Brands": {
         "type": "object",
         "properties": {
-          "message": {
+          "Name": {
             "type": "object",
             "properties": {
               "type": {
@@ -461,29 +1099,6 @@
               }
             }
           },
-          "code": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "number"
-              }
-            }
-          },
-          "_id": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          }
-        }
-      },
-      "Brand": {
-        "type": "object",
-        "properties": {
           "Country": {
             "type": "object",
             "properties": {
@@ -493,7 +1108,20 @@
               }
             }
           },
-          "Founders": {
+          "StartingDate": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "Logo": {
             "type": "object",
             "properties": {
               "type": {
@@ -511,232 +1139,7 @@
               }
             }
           },
-          "Logo": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Name": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "StartingDate": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
-              }
-            }
-          },
-          "_id": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          }
-        }
-      },
-      "CarDealerFranchise": {
-        "type": "object",
-        "properties": {
-          "Address": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Brand": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "City": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Country": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Emails": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "array"
-              },
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "string"
-                  }
-                }
-              }
-            }
-          },
-          "Name": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "PhoneNumber": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "State": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "_id": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          }
-        }
-      },
-      "AftermarketCompanies": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Address": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "City": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "State": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Country": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Brands": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "array"
-              },
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "string"
-                  },
-                  "required": {
-                    "type": "boolean",
-                    "example": true
-                  }
-                }
-              }
-            }
-          },
-          "CertifiedMechanics": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "number"
-              }
-            }
-          },
-          "Vehicles": {
+          "Founders": {
             "type": "object",
             "properties": {
               "type": {

@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const brandController = require('../controllers/brandController');
-const validation = require('../utils/oauth');
+const brandsController = require('../controllers/brandsController');
 
-router.post('/brands', validation.isAuthenticated, brandController.createBrand);
-router.put('/brands/:brandId', validation.isAuthenticated, brandController.updateBrand);
-router.get('/brands', brandController.getAllBrands);
-router.get('/brands/findByCountry', brandController.findByCountry);
-router.get('/brands/findByName', brandController.findByName);
-router.get('/brands/:brandId', brandController.getBrandById);
-router.delete('/brands/:brandId', validation.isAuthenticated, brandController.deleteBrand);
+router.post('/', brandsController.createBrand);
+router.put('/:brandsId', brandsController.updateBrand);
+router.get('/', brandsController.getBrands);
+router.get('/findByCountry', brandsController.findBrandsByCountry);
+router.get('/findByName', brandsController.findBrandsByName);
+router.get('/:brandsId', brandsController.getBrandById);
+router.delete('/:brandsId', brandsController.deleteBrandById);
 
 module.exports = router;
