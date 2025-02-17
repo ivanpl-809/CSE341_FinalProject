@@ -4,11 +4,13 @@ const mongooseToSwagger = require('mongoose-to-swagger');
 const partsModel = require('./models/partsModel');
 const aftermarketCompaniesModel = require('./models/aftermarketCompaniesModel');
 const vehicleModel = require('./models/vehicleModel');
+const brandsModel = require('./models/brandsModel');
 const mongoose = require('mongoose');
 
 const partsSchema = mongooseToSwagger(partsModel);
 const aftermarketCompaniesSchemaSchema = mongooseToSwagger(aftermarketCompaniesModel);
 const vehicleSchema = mongooseToSwagger(vehicleModel);
+const brandSchema = mongooseToSwagger(brandsModel);
 
 const doc = {
   openapi: '3.0.0',
@@ -31,6 +33,7 @@ const doc = {
       Part: partsSchema.properties,
       AftermarketCompanies: aftermarketCompaniesSchemaSchema.properties,
       Vehicle: vehicleSchema.properties,
+      Brands: brandSchema.properties
     },
   },
 
