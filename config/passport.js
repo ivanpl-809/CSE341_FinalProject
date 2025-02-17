@@ -12,8 +12,8 @@ passport.deserializeUser((user, done) => {
 passport.use(
   new GitHubStrategy(
     {
-      clientID: 'YOUR_GITHUB_CLIENT_ID', // Replace with your GitHub OAuth App Client ID
-      clientSecret: 'YOUR_GITHUB_CLIENT_SECRET', // Replace with your GitHub OAuth App Client Secret
+      clientID: 'Ov23liy3wu8XUfbhs8Ui', // Replace with your GitHub OAuth App Client ID
+      clientSecret: '78f2956b0853614bf1bcbd4967944dbef97ee543', // Replace with your GitHub OAuth App Client Secret
       callbackURL: 'http://localhost:3000/auth/github/callback', // Replace with your callback URL
     },
     (accessToken, refreshToken, profile, done) => {
