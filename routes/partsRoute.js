@@ -4,7 +4,7 @@ const partsController = require('../controllers/partsController');
 
 router.post('/', partsController.createPart);
 router.put('/:partsId', partsController.updatePart);
-router.get('/', partsController.getParts);
+router.get('/', partsController.getAllParts);
 router.get('/findByBrand', partsController.getPartsByBrand);
 router.get('/findByVehicle', partsController.getPartsByVehicle);
 router.get('/findByQuality', partsController.getPartsByQuality);
