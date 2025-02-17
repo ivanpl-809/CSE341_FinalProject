@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const aftermarketCompaniesController = require('../controllers/aftermarketCompaniesController');
 
+
 router.post('/', aftermarketCompaniesController.createAftermarketCompany);
 router.put('/:aftermarketId', aftermarketCompaniesController.updateAftermarketCompany);
 router.get('/', aftermarketCompaniesController.getAftermarketCompanies);

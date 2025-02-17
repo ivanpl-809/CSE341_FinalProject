@@ -8,7 +8,6 @@
     "dev": "nodemon server.js",
     "lint": "eslint --fix",
     "test": "mocha test/**/*.test.js"
-
   },
   "keywords": [],
   "author": "",
